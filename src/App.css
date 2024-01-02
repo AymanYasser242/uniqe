@@ -1,0 +1,178 @@
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+/* For Firefox */
+::-moz-scrollbar {
+  width: 5px;
+}
+
+::-moz-scrollbar:hover {
+  width: 8px;
+}
+
+::-moz-scrollbar-track {
+  background-color: inherit;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+/* For Internet Explorer and Edge */
+::-ms-scrollbar {
+  width: 5px;
+}
+
+::-ms-scrollbar:hover {
+  width: 8px;
+}
+
+::-ms-scrollbar-track {
+  background-color: inherit;
+}
+
+::-ms-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.ant-float-btn .ant-float-btn-body .ant-float-btn-content .ant-float-btn-icon {
+  width: auto;
+  height: auto;
+}
+.ant-float-btn-content .ant-float-btn-icon svg {
+  width: 36px;
+  height: 36px;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+.enchantment-clickblock > :not(tw-enchantment)::after {
+  box-shadow: none;
+}
+body {
+  margin: 0;
+}
+.main-header {
+  height: auto;
+  padding: 0.5rem 1rem;
+}
+.main-header .header-links a {
+  color: #f5f5f5;
+  font-size: 1.2rem;
+}
+.main-header .header-logo {
+  width: 70px;
+  height: auto;
+  position: static;
+}
+
+.explore {
+  padding: 3rem 1rem;
+}
+.explore .main-title {
+  position: relative;
+  width: 100%;
+  font-weight: 700;
+  padding: 0 1rem;
+}
+
+.explore .main-title::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  left: 0;
+  border-radius: 999px;
+  background-color: #688272;
+}
+
+.hero .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.main-carousel .slick-slide {
+  position: relative;
+  height: 70vh;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.main-carousel .slick-slide[data-index="0"] {
+  background-image: url("/carousel-5.webp");
+}
+.main-carousel .slick-slide[data-index="1"] {
+  background-image: url("/carousel-1.webp");
+}
+.main-carousel .slick-slide[data-index="2"] {
+  background-image: url("/carousel-7.webp");
+}
+.main-carousel .slick-slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.main-carousel .slick-slide h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f5f5f5;
+  font-size: 2rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+.collection .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.collection .main-title {
+  position: relative;
+  font-weight: 700;
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+.collection .main-title::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  left: 0;
+  border-radius: 999px;
+  background-color: #688272;
+}
+.footer .ant-list li {
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+}
