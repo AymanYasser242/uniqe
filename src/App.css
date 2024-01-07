@@ -62,24 +62,50 @@
   height: 36px;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-.enchantment-clickblock > :not(tw-enchantment)::after {
-  box-shadow: none;
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
   margin: 0;
 }
 .main-header {
   height: auto;
-  padding: 0.5rem 1rem;
-}
-.main-header .header-links a {
-  color: #f5f5f5;
-  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 .main-header .header-logo {
-  width: 70px;
+  width: 150px;
   height: auto;
   position: static;
+}
+.main-header .header-links a {
+  position: relative;
+  color: rgba(43, 49, 43, 0.85);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Exo 2";
+  text-transform: uppercase;
+  padding: 0 1rem;
+  transition: all 0.4s ease-in-out;
+}
+.main-header .header-links a:hover {
+  color: #688272;
+}
+.main-header .header-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background-color: #688272;
+  transition: all 0.4s ease-in-out;
+}
+.main-header .header-links a:hover::after {
+  width: 90%;
+  height: 2px;
 }
 
 .explore {
@@ -113,7 +139,7 @@ body {
 }
 .main-carousel .slick-slide {
   position: relative;
-  height: 70vh;
+
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,17 +162,36 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
 }
-.main-carousel .slick-slide h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #f5f5f5;
-  font-size: 2rem;
+
+.main-carousel .slick-slide .text-wrapper {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-carousel .slick-slide .text-wrapper h3 {
   text-transform: capitalize;
   text-align: center;
+  color: #f5f5f5;
+  margin-block: 0 0;
+  padding: 0.5rem 1rem;
 }
+.main-carousel .slick-slide .text-wrapper p {
+  text-align: center;
+  margin-block: 0 0;
+  position: relative;
+  z-index: 10;
+  color: rgba(209, 213, 219, 1);
+  padding: 0.5rem 1rem;
+}
+
 .collection .swiper-slide {
   display: flex;
   align-items: center;
@@ -175,4 +220,14 @@ body {
   color: #fff;
   font-size: 0.9rem;
   padding: 0.2rem 0;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+@media (max-width: 768px) {
+  .main-header .header-logo {
+    width: 130px;
+    height: auto;
+    position: static;
+  }
+
 }

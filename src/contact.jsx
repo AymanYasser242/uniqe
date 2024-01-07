@@ -9,7 +9,8 @@ const Contact = () => {
       style={{
         backgroundImage: "url(waves.svg)",
       }}
-      className="bg-cover py-20 bg-gray-100 text-center bg-no-repeat bg-top min-h-32"
+      className="contact bg-cover py-20 bg-gray-100 text-center bg-no-repeat bg-top min-h-32"
+      id="contact"
     >
       <div className="max-sm:px-5 mx-auto ">
         <section className=" max-w-lg mx-auto">

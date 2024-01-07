@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Avatar, Col, Flex, Image, Row } from "antd";
+import { Avatar, Col, Divider, Flex, Image, Row } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
 import { useRef } from "react";
@@ -10,13 +10,16 @@ const Hero = () => {
   const swiperRef = useRef(null);
 
   return (
-    <Row className="hero bg-[#f3f4f6] pt-2 px-6 pb-10 min-h-[70vh] md:min-h-[83vh]">
-      <Col xs={{ span: 24 }} md={{ span: 12 }}>
+    <Row
+      className="hero bg-[#f3f4f6] pt-6 px-6  pb-10 "
+      id="hero"
+    >
+      <Col xs={{ span: 24 }} md={{ span: 12 }} className="lg:pl-4">
         <Flex
           justify="center"
           align="flex-start"
           vertical
-          gap={20}
+          gap={18}
           className="h-full"
         >
           <Image
@@ -81,10 +84,27 @@ const Hero = () => {
               color: "rgb(113 113 113",
               fontSize: "larger",
               fontWeight: 500,
+              marginBottom : 0
             }}
           >
             Leading providers of high-quality wooden products.
           </Paragraph>
+          <Flex className="w-full items-center justify-between sm:justify-start mb-5 md:mb-2">
+            <h2 className="flex flex-col justify-between items-center text-center gap-y-2 md:text-xl">
+              <span>Quality</span>
+              <Icon icon="mdi:approve" width={35} className="text-gray-500"/>
+            </h2>
+            <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
+            <h2 className="flex flex-col justify-between items-center text-center gap-y-2">
+              <span>Modern</span>
+              <Icon icon="game-icons:light-bulb" width={35} className="text-gray-500"/>
+            </h2>
+            <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
+            <h2 className="flex flex-col justify-between items-center text-center gap-y-2">
+              <span>Smart</span>
+              <Icon icon="la:atom"  width={35} className="text-gray-500"/>
+            </h2>
+          </Flex>
         </Flex>
       </Col>
       <Col

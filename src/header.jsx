@@ -3,12 +3,11 @@ import {
   AppstoreOutlined,
   MailOutlined,
   BarsOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Flex, Image, Menu, Drawer, Button } from "antd";
 import { Header } from "antd/es/layout/layout";
 import { Link } from "react-router-dom";
-
-const { SubMenu } = Menu;
 
 const MainHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -22,32 +21,37 @@ const MainHeader = () => {
   };
 
   return (
-    <Header className="main-header">
+    <Header className="main-header  relative md:sticky top-0 z-[999]">
       <Flex justify="space-between" align="center" component="nav">
         <Link to="/">
-          <Image src="logo.svg" className="header-logo" preview={false} />
+          <Image
+            src="logo-header.svg"
+            className="header-logo"
+            preview={false}
+           
+          />
         </Link>
-        <Flex className="header-links" gap={30}>
-          {/* <a href="#">Home</a>
-          <a href="#">Shop</a>
-          <a href="#">Contact</a> */}
+        <Flex className="header-links hidden md:block transform -translate-x-11">
+          <a href="#hero">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#contact">Contact</a>
         </Flex>
         <Drawer
           placement="right"
           closable={false}
           onClose={onClose}
           open={drawerOpen}
+          width={300}
         >
           <Menu mode="vertical">
             <Menu.Item key="home" icon={<AppstoreOutlined />}>
-              Home
+              <a href="#hero">Home</a>
             </Menu.Item>
-            <SubMenu key="services" icon={<BarsOutlined />} title="Services">
-              <Menu.Item key="service1">Service 1</Menu.Item>
-              <Menu.Item key="service2">Service 2</Menu.Item>
-            </SubMenu>
+            <Menu.Item key="shop" icon={<ShoppingCartOutlined />}>
+              <a href="#shop">Shop</a>
+            </Menu.Item>
             <Menu.Item key="contact" icon={<MailOutlined />}>
-              Contact
+              <a href="#contact">Contact</a>
             </Menu.Item>
           </Menu>
         </Drawer>
@@ -55,16 +59,15 @@ const MainHeader = () => {
         {/* Hamburger Menu Button for Mobile */}
         <Button
           type="text"
-          onClick={
-            {
-              /*showDrawer*/
-            }
-          }
+          onClick={showDrawer}
+          style={{
+            height: "auto",
+          }}
           icon={
             <BarsOutlined
               style={{
-                color: "#688272",
-                fontSize: "30px",
+                color: "#82a38f",
+                fontSize: "35px",
               }}
             />
           }

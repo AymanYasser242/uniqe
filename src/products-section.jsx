@@ -23,7 +23,7 @@ const ProductSection = () => {
   };
 
   return (
-    <section className="collection py-10 px-4 my-4 flex flex-col justify-center items-center relative">
+    <section className="collection  py-10 px-4 my-4 flex flex-col justify-center items-center relative" id="shop">
       <Image
         src="explore.svg"
         alt="explore now"
@@ -33,7 +33,7 @@ const ProductSection = () => {
           position: "absolute",
           top: "-110px",
           left: 0,
-          zIndex: 999,
+          zIndex: 10,
         }}
       />
       <Flex

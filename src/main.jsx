@@ -14,8 +14,8 @@ const theme = {
   },
   components: {
     Layout: {
-      headerBg : "#262626",
-      
+      headerBg : "#fff",
+     
     },
     Menu: {
       colorPrimary: "#688272",
