@@ -6,7 +6,7 @@ import Title from "antd/es/typography/Title";
 
 const MainFooter = () => {
   return (
-    <Footer className="footer bg-[#262626] text-white px-0 py-1">
+    <Footer className="footer bg-[#131B23] text-white px-0 py-1">
       <Row className="flex justify-between">
         <Col xs={{ span: 24 }} md={{ span: 8 }} className="px-4 md:px-10">
           <Title
@@ -67,7 +67,7 @@ const MainFooter = () => {
       </Row>
       <Row>
         <Divider className="before:bg-gray-700 after:bg-gray-700  text-slate-300">
-          <span className="text-slate-300">© All rights reserved 2023</span>
+          <span className="text-slate-300">© All rights reserved 2024</span>
         </Divider>
         <Title
           level={5}

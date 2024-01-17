@@ -1,4 +1,4 @@
-import { Flex, Image, Row } from "antd";
+import { Flex } from "antd";
 import ExploreCard from "./explore-card";
 import Title from "antd/es/typography/Title";
 import { Icon } from "@iconify/react";
@@ -10,9 +10,9 @@ const Explore = () => {
         justify="space-between"
         align="center"
         wrap="wrap"
-        className="mb-5 rounded-lg py-1 px-2 bg-[#F3F4F6] w-full"
+        className="mb-5 rounded-lg py-1 px-2 bg-[#F6F5F6] w-full"
       >
-        <Title className="main-title" level={2}>
+        <Title className="main-title" level={3}>
           What Makes Us The Preferred
           <br />
           Choice ?

@@ -5,15 +5,20 @@ import Title from "antd/es/typography/Title";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Autoplay } from "swiper/modules";
-import ProductHero from "./product-hero-card";
+import ProductHero from "./product/product-hero-card";
 const Hero = () => {
   const swiperRef = useRef(null);
 
   return (
-    <Row
-      className="hero bg-[#f3f4f6] pt-6 px-6  pb-10 "
-      id="hero"
-    >
+    <Row className="hero bg-[#f3f4f6] pt-6 px-6  pb-10 relative" id="hero">
+      <div className="absolute bottom-[-48px] left-1/2 -translate-x-1/2">
+        <Image
+          src="/explore.svg"
+          alt="explore now"
+          preview={false}
+          width={"200px"}
+        />
+      </div>
       <Col xs={{ span: 24 }} md={{ span: 12 }} className="lg:pl-4">
         <Flex
           justify="center"
@@ -25,7 +30,7 @@ const Hero = () => {
           <Image
             src="logo.svg"
             preview={false}
-            className="md:block hidden md:max-w-[250px] w-[90%]"
+            className="md:block hidden md:max-w-[220px]"
           />
           <Flex
             gap={5}
@@ -84,25 +89,29 @@ const Hero = () => {
               color: "rgb(113 113 113",
               fontSize: "larger",
               fontWeight: 500,
-              marginBottom : 0
+              marginBottom: 0,
             }}
           >
             Leading providers of high-quality wooden products.
           </Paragraph>
           <Flex className="w-full items-center justify-between sm:justify-start mb-5 md:mb-2">
-            <h2 className="flex flex-col justify-between items-center text-center gap-y-2 md:text-xl">
+            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2 md:text-xl">
               <span>Quality</span>
-              <Icon icon="mdi:approve" width={35} className="text-gray-500"/>
+              <Icon icon="mdi:approve" width={35} className="text-[#688272]" />
             </h2>
             <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
-            <h2 className="flex flex-col justify-between items-center text-center gap-y-2">
+            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2">
               <span>Modern</span>
-              <Icon icon="game-icons:light-bulb" width={35} className="text-gray-500"/>
+              <Icon
+                icon="game-icons:light-bulb"
+                width={35}
+                className="text-[#688272]"
+              />
             </h2>
             <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
-            <h2 className="flex flex-col justify-between items-center text-center gap-y-2">
+            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2">
               <span>Smart</span>
-              <Icon icon="la:atom"  width={35} className="text-gray-500"/>
+              <Icon icon="la:atom" width={35} className="text-[#688272]" />
             </h2>
           </Flex>
         </Flex>
@@ -114,7 +123,7 @@ const Hero = () => {
       >
         <Flex justify="center" className="max-w-full xl:max-w-[550px]">
           <Swiper
-            slidesPerView={"auto"}
+            slidesPerView="auto"
             spaceBetween={20}
             loop={true}
             mousewheel={true}
@@ -125,28 +134,28 @@ const Hero = () => {
           >
             <SwiperSlide>
               <ProductHero
-                src="product (2).jpg"
+                src="product-2.jpg"
                 title="Retro Rocket Lamp"
                 description="Sculpture Wooden Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product (3).jpg"
+                src="product-3.jpg"
                 title="Articulated Design Lamp"
                 description="Wooden design Table Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product (1).jpg"
+                src="product-1.jpg"
                 title="Articulated Design Lamp"
                 description="Wooden design Table Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product (4).jpg"
+                src="product-4.jpg"
                 title="Articulated Design Lamp"
                 description="Wooden design Table Lamp"
               />

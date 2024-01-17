@@ -3,15 +3,15 @@ import Hero from "./hero";
 import Explore from "./explore";
 import CarouselSlider from "./curosal";
 import Contact from "./contact";
-import ProductSection from "./products-section";
+import ProductSection from "./product/products-section";
 
 const MainContent = () => {
   return (
     <Content>
-      <Hero /> 
+      <Hero />
       <ProductSection />
-      <Explore />
       <CarouselSlider />
+      <Explore />
       <Contact />
     </Content>
   );
