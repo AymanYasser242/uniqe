@@ -6,38 +6,31 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
 import { Image } from "antd";
 
-const ProductsImages = () => {
+const ProductsImages = ({ images, slug }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <div className="products-images">
       <Swiper
         slidesPerView={1}
+        spaceBetween={5}
         loop={true}
-        autoplay={{ delay: 3500 }}
+        autoplay={{ delay: 3000 }}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         modules={[FreeMode, Autoplay, Thumbs]}
         className="mySwiper1"
       >
-        <SwiperSlide>
-          <Image preview src="/product-1.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image preview src="/product-2.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image preview src="/product-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image preview src="/product-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image preview src="/product-2.jpg" />
-        </SwiperSlide>
+        {images.map((filename, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              preview
+              src={`/produts/${slug}/optimized/${filename}`}
+              alt={`Slide ${index + 1}`}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -48,23 +41,14 @@ const ProductsImages = () => {
         modules={[FreeMode, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <img src="/product-1.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="/product-2.jpg" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="/product-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/product-2.jpg" />
-        </SwiperSlide>
+        {images.map((filename, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={`/produts/${slug}/thumbnails/${filename}`}
+              alt={`Slide ${index + 1}`}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

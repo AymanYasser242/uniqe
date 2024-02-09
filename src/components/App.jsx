@@ -1,6 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import ContentContainer from "./content-container";
-import MainContent from "./content";
+import HomePage from "./home";
 import ProductView from "./product/product-view";
 import Cart from "./cart";
 import Signup from "./signup";
@@ -8,22 +13,28 @@ import Login from "./login";
 import Shop from "./shop";
 import Contact from "./contact";
 
+
 function App() {
+
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<ContentContainer />}>
+        <Route index element={<HomePage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="product/:slug" element={<ProductView />} />
+        <Route path="cart/" element={<Cart />} />
+      </Route>
+    )
+  );
+
+  // --------------------------------------------------------------------------------------------------
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ContentContainer />}>
-            <Route index element={<MainContent />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="product/:id" element={<ProductView />} />
-            <Route path="cart/" element={<Cart />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </div>
   );
 }

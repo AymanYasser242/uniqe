@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Autoplay, Mousewheel } from "swiper/modules";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, Flex } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import ProductCard from "./product-collection-card";
 import Title from "antd/es/typography/Title";
+import { useProducts } from "../../hooks/useProducts";
 
 const ProductSection = () => {
   const swiperRef = useRef(null);
@@ -16,11 +17,27 @@ const ProductSection = () => {
   };
 
   const handleNextClick = () => {
-    console.log(swiperRef.current.swiper);
     if (swiperRef.current) {
       swiperRef.current.swiper.slideNext();
     }
   };
+
+  //-------------------------------------------------------------------------------------------------------------------------
+  const { getAllProducts } = useProducts();
+  const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAllProducts();
+      if(data){
+        setProducts(data);
+      }
+      
+    }
+    getData();
+  }, [])
+
 
   return (
     <section
@@ -61,12 +78,12 @@ const ProductSection = () => {
           />
         </Flex>
       </Flex>
-      <Flex className="py-4 max-w-full">
+      <Flex className="py-4 w-full">
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={40}
           loop={true}
-          mousewheel={true}
+          mousewheel={false}
           autoplay={{ delay: 3500, disableOnInteraction: true }}
           keyboard={true}
           modules={[Navigation, Keyboard, Autoplay, Mousewheel]}
@@ -75,41 +92,36 @@ const ProductSection = () => {
             0: {
               centeredSlides: true,
               centeredSlidesBounds: true,
+              centerInsufficientSlides: true,
             },
-            500: {
+            768: {
               centeredSlides: false,
               centeredSlidesBounds: false,
+              centerInsufficientSlides: false,
             },
           }}
         >
-          <SwiperSlide>
-            <ProductCard
-              src="/product-2.jpg"
-              title="Retro Rocket Lamp"
-              description="Sculpture Wooden Lamp"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard
-              src="/product-3.jpg"
-              title="Articulated Design Lamp"
-              description="Wooden design Table Lamp"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard
-              src="/product-1.jpg"
-              title="Articulated Design Lamp"
-              description="Wooden design Table Lamp"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard
-              src="/product-4.jpg"
-              title="Articulated Design Lamp"
-              description="Wooden design Table Lamp"
-            />
-          </SwiperSlide>
+          {
+            products.map((product) => (
+              <SwiperSlide key={product._id}>
+                <ProductCard
+                  product={product}
+                />
+              </SwiperSlide>
+            ))
+          }
+          {/*----------- duplication because of loop-----------*/}
+          {
+            products.map((product) => (
+              <SwiperSlide key={product.slug}>
+                <ProductCard
+                  product={product}
+                />
+              </SwiperSlide>
+            ))
+          }
+
+
         </Swiper>
       </Flex>
       <Flex

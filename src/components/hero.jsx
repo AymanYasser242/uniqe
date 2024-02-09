@@ -4,7 +4,7 @@ import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Keyboard, Autoplay } from "swiper/modules";
+import { Navigation, Keyboard, Autoplay, Mousewheel } from "swiper/modules";
 import ProductHero from "./product/product-hero-card";
 const Hero = () => {
   const swiperRef = useRef(null);
@@ -19,7 +19,7 @@ const Hero = () => {
           width={"200px"}
         />
       </div>
-      <Col xs={{ span: 24 }} md={{ span: 12 }} className="lg:pl-4">
+      <Col xs={{ span: 24 }} lg={{ span: 12 }} className="lg:pl-4">
         <Flex
           justify="center"
           align="flex-start"
@@ -30,7 +30,7 @@ const Hero = () => {
           <Image
             src="logo.svg"
             preview={false}
-            className="md:block hidden md:max-w-[220px]"
+            className="hidden lg:block  lg:max-w-[220px]"
           />
           <Flex
             gap={5}
@@ -94,70 +94,71 @@ const Hero = () => {
           >
             Leading providers of high-quality wooden products.
           </Paragraph>
-          <Flex className="w-full items-center justify-between sm:justify-start mb-5 md:mb-2">
-            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2 md:text-xl">
+          <Flex className="w-full items-center justify-around sm:justify-start mb-5 md:mb-2">
+            <h2 className="flex flex-col justify-between items-center text-center text-lg text-slate-800 gap-y-2 ">
               <span>Quality</span>
               <Icon icon="mdi:approve" width={35} className="text-[#688272]" />
             </h2>
-            <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
-            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2">
+            <Divider type="vertical" className="h-[60%] bg-gray-300 mx-5" />
+            <h2 className="flex flex-col justify-between items-center text-center text-lg text-slate-800 gap-y-2">
               <span>Modern</span>
               <Icon
-                icon="game-icons:light-bulb"
+                icon="game-icons:desk-lamp"
                 width={35}
                 className="text-[#688272]"
               />
+
             </h2>
-            <Divider type="vertical" className="h-[50%] bg-gray-300 mx-6" />
-            <h2 className="flex flex-col justify-between items-center text-center text-slate-800 gap-y-2">
+            <Divider type="vertical" className="h-[60%] bg-gray-300 mx-5" />
+            <h2 className="flex flex-col justify-between items-center text-center text-lg text-slate-800 gap-y-2">
               <span>Smart</span>
-              <Icon icon="la:atom" width={35} className="text-[#688272]" />
+              <Icon icon="mdi:head-idea" width={35} className="text-[#688272]" />
             </h2>
           </Flex>
         </Flex>
       </Col>
       <Col
         xs={{ span: 24 }}
-        md={{ span: 12 }}
-        className="px-16 py-2 hidden md:flex justify-end"
+        lg={{ span: 12 }}
+        className="px-16 py-2 hidden lg:flex justify-end"
       >
-        <Flex justify="center" className="max-w-full xl:max-w-[550px]">
+        <Flex justify="center" className="max-w-full xl:max-w-[580px]">
           <Swiper
             slidesPerView="auto"
-            spaceBetween={20}
+            spaceBetween={15}
             loop={true}
             mousewheel={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             keyboard={true}
-            modules={[Navigation, Keyboard, Autoplay]}
+            modules={[Navigation, Keyboard, Autoplay, Mousewheel]}
             ref={swiperRef}
           >
             <SwiperSlide>
               <ProductHero
-                src="product-2.jpg"
-                title="Retro Rocket Lamp"
-                description="Sculpture Wooden Lamp"
+                src="/produts/warrior-lamp/optimized/img-3-min.jpg"
+                title="Warrior Lamp"
+                description="Warrior Wooden Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product-3.jpg"
-                title="Articulated Design Lamp"
-                description="Wooden design Table Lamp"
+                src="/produts/warrior-lamp/optimized/img-8-min.jpg"
+                title="Warrior Lamp"
+                description="Warrior Wooden Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product-1.jpg"
-                title="Articulated Design Lamp"
-                description="Wooden design Table Lamp"
+                src="/produts/warrior-lamp/optimized/img-5-min.jpg"
+                title="Warrior Lamp"
+                description="Warrior Wooden Lamp"
               />
             </SwiperSlide>
             <SwiperSlide>
               <ProductHero
-                src="product-4.jpg"
-                title="Articulated Design Lamp"
-                description="Wooden design Table Lamp"
+                src="/produts/warrior-lamp/optimized/img-10-min.jpg"
+                title="Warrior Lamp"
+                description="Warrior Wooden Lamp"
               />
             </SwiperSlide>
           </Swiper>

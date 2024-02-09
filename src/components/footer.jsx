@@ -23,23 +23,43 @@ const MainFooter = () => {
             and timeless elegance to homes and businesses.
           </Paragraph>
           <Flex className="py-4 text-2xl md:text-3xl text-lime-600" gap={15}>
-            <a className="text-slate-300">
+            <a
+              href="https://www.facebook.com/profile.php?id=61552485250311&mibextid=2JQ9oc"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300"
+            >
               <Icon icon="ic:baseline-facebook" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-slate-300">
+            <a
+              href="https://www.instagram.com/uniqe_eg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300"
+            >
               <Icon icon="ri:instagram-line" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-slate-300">
+            <a target="_blank" rel="noreferrer" className="text-slate-300">
               <Icon icon="icon-park-twotone:big-x" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-slate-300">
+            <a
+              href="https://api.whatsapp.com/send/?phone=201080875089"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300"
+            >
               <Icon icon="ant-design:whats-app-outlined" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-slate-300">
+            <a
+              href="tel:+201080875089"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-300"
+            >
               <Icon icon="lucide:phone" />
             </a>
           </Flex>
@@ -78,7 +98,7 @@ const MainFooter = () => {
             icon="ph:code-bold"
             width={20}
             className="px-2 text-[#688272]"
-          />{" "}
+          />
           Developed By : Ayman Yasser
         </Title>
         <Flex
@@ -87,20 +107,40 @@ const MainFooter = () => {
           className="w-full py-6 text-2xl  text-lime-600"
           gap={15}
         >
-          <a className="text-slate-300">
+          <a
+            href="https://www.facebook.com/ayman.yasser.39"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-300"
+          >
             <Icon icon="ic:baseline-facebook" />
           </a>
           <Divider type="vertical" className="h-auto bg-gray-300" />
-          <a className="text-slate-300">
+          <a
+            href="https://www.linkedin.com/in/ayman-yasser/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-300"
+          >
             <Icon icon="ri:linkedin-fill" />
           </a>
 
           <Divider type="vertical" className="h-auto bg-gray-300" />
-          <a className="text-slate-300">
+          <a
+            href="https://api.whatsapp.com/send/?phone=201279463663"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-300"
+          >
             <Icon icon="ant-design:whats-app-outlined" />
           </a>
           <Divider type="vertical" className="h-auto bg-gray-300" />
-          <a className="text-slate-300">
+          <a
+            href="tel:+201279463663"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-300"
+          >
             <Icon icon="lucide:phone" />
           </a>
         </Flex>

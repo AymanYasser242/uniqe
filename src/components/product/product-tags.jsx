@@ -2,15 +2,30 @@ import { Icon } from "@iconify/react";
 import { Avatar, Flex } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 
-const tags = [
-  { icon: "system-uicons:ruler", value: "50x15", unit: "cm" },
-  { icon: "fluent:box-20-regular", value: "1", unit: "kg" },
-  { icon: "ph:meta-logo", value: "uniqe", unit: "" },
-  { icon: "mynaui:tree", value: "wood", unit: "" },
-  // Add more tags as needed
-];
+
 
 const ProductTags = () => {
+  const details = {
+    "brand": "Uniqe",
+    "dimensions": {
+      "height": 30,
+      "width": 25,
+      "depth": 10
+    },
+    "color": "Light Espresso",
+    "region": "Made In Egypt",
+    "weight": 300,
+    "matrial": "wood"
+  }
+  const tags = [
+    { icon: "system-uicons:ruler", value: `${details.dimensions.height}x${details.dimensions.width}x${details.dimensions.depth}`, unit: "cm" },
+    { icon: "fluent:box-20-regular", value: details.weight, unit: "g" },
+    { icon: "ph:meta-logo", value: details.brand, unit: "" },
+    { icon: "mynaui:tree", value: details.matrial, unit: "" },
+    { icon: "fluent:color-24-regular", value: details.color, unit: "" },
+
+  ];
+
   return (
     <Flex gap={15} wrap="wrap" justify="flex-start">
       {tags.map((tag, index) => (

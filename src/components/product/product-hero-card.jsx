@@ -4,15 +4,8 @@ import { Link } from "react-router-dom";
 
 const ProductHero = ({ src, title, description }) => {
   return (
-    <Card
-      cover={<Image src={src} />}
-      style={{
-        width: 260,
-        padding: "0.5rem",
-      }}
-      hoverable
-    >
-      <Link to="/product/123">
+    <Card cover={<Image src={src} />} hoverable>
+      <Link to="/product/warrior-lamp">
         <Meta title={title} description={description} />
         <Divider
           style={{

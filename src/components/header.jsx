@@ -1,14 +1,11 @@
 import { useState } from "react";
 import {
-  AppstoreOutlined,
-  LoginOutlined,
-  MailOutlined,
-  ShoppingCartOutlined,
-  UsergroupAddOutlined,
+  //  LoginOutlined,
+  // UsergroupAddOutlined,
 } from "@ant-design/icons";
 import { Flex, Image, Menu, Drawer, Button, Divider, Badge } from "antd";
 import { Header } from "antd/es/layout/layout";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useMainContext } from "../hooks/useMainContext";
 
@@ -40,30 +37,31 @@ const MainHeader = () => {
           onClose={onClose}
           open={drawerOpen}
           width={300}
+          className="main-drawer"
         >
-          <Menu mode="vertical">
-            <Menu.Item key="home" icon={<AppstoreOutlined />}>
-              <Link href="/">Home</Link>
+          <Menu mode="vertical" >
+            <Menu.Item key="home" icon={<Icon icon="iconamoon:home" />}>
+              <NavLink to="/" className="text-lg">Home</NavLink>
             </Menu.Item>
-            <Menu.Item key="shop" icon={<ShoppingCartOutlined />}>
-              <a href="#shop">Shop</a>
+            <Menu.Item key="shop" icon={<Icon icon="ant-design:product-outlined" />}>
+              <NavLink to="/product/1" className="text-lg">Shop</NavLink>
             </Menu.Item>
-            <Menu.Item key="contact" icon={<MailOutlined />}>
-              <Link to="/contact">Contact</Link>
+            <Menu.Item key="contact" icon={<Icon icon="grommet-icons:contact" />}>
+              <NavLink to="/contact" className="text-lg">Contact</NavLink>
             </Menu.Item>
             {user && (
               <Menu.Item
-                key="contact"
-                icon={<Icon icon="gg:profile" width={20} />}
+                key="profile"
+                icon={<Icon icon="gg:profile" />}
               >
-                <Link to="">Profile</Link>
+                <NavLink to="" className="text-lg">Profile</NavLink>
               </Menu.Item>
             )}
             {/* <Menu.Item key="signup" icon={<UsergroupAddOutlined />}>
-              <Link to="/signup">Signup</Link>
+              <NavLink to="/signup">Signup</NavLink>
             </Menu.Item>
             <Menu.Item key="login" icon={<LoginOutlined />}>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             </Menu.Item> */}
           </Menu>
         </Drawer>
@@ -85,7 +83,7 @@ const MainHeader = () => {
           />
           <div
             className="hidden"
-            //className="hidden md:flex justify-center items-center"
+          //className="hidden md:flex justify-center items-center"
           >
             <Link
               className="font-[500] text-primary text-base rounded-full px-5 py-3 mr-2 leading-4 h-auto hover:bg-primary hover:text-white transition-all"
@@ -114,7 +112,7 @@ const MainHeader = () => {
               width: 40,
               height: 40,
             }}
-            //className="md:hidden"
+          //className="md:hidden"
           />
         </Flex>
       </Flex>

@@ -9,7 +9,7 @@ const Contact = () => {
       style={{
         backgroundImage: "url(waves.svg)",
       }}
-      className="contact bg-cover py-20 bg-gray-100 text-center bg-no-repeat bg-top min-h-32"
+      className="contact bg-cover py-20 bg-gray-100 text-center bg-no-repeat bg-top min-h-[30vh] flex flex-col items-center justify-center "
       id="contact"
     >
       <div className="max-sm:px-5 mx-auto ">
@@ -34,24 +34,44 @@ const Contact = () => {
             className="py-6 text-3xl md:text-4xl text-lime-600"
             gap={10}
           >
-            <a className="text-gray-600">
+            <a
+              href="https://www.facebook.com/profile.php?id=61552485250311&mibextid=2JQ9oc"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-600"
+            >
               <Icon icon="ic:baseline-facebook" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-gray-600">
+            <a
+              href="https://www.instagram.com/uniqe_eg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-600"
+            >
               <Icon icon="ri:instagram-line" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-gray-600">
+            <a target="_blank" rel="noreferrer" className="text-gray-600">
               <Icon icon="icon-park-twotone:big-x" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-gray-600">
+            <a
+              className="text-gray-600"
+              href="https://api.whatsapp.com/send/?phone=201080875089"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Icon icon="ant-design:whats-app-outlined" />
             </a>
             <Divider type="vertical" className="h-auto bg-gray-300" />
-            <a className="text-gray-600">
-            <Icon icon="lucide:phone" />
+            <a
+              href="tel:+201080875089"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-600"
+            >
+              <Icon icon="lucide:phone" />
             </a>
           </Flex>
         </section>

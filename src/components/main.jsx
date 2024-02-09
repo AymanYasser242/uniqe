@@ -22,6 +22,9 @@ const theme = {
     Button: {
       primaryShadow: "0 2px 0 rgba(2, 100, 64, 0.1)",
     },
+    Spin: {
+      dotSizeLG: 45
+    }
   },
 };
 
