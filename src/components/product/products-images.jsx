@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,13 +9,23 @@ import { Image } from "antd";
 const ProductsImages = ({ images, slug }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+  const swiperRef = useRef(null);
+
+  // Reset Swiper when product changes
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(0, 0);
+    }
+  }, [slug]);
+
   return (
     <div className="products-images">
       <Swiper
+        ref={swiperRef}
         slidesPerView={1}
         spaceBetween={5}
         loop={true}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 3500, disableOnInteraction: true }}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
@@ -23,11 +33,12 @@ const ProductsImages = ({ images, slug }) => {
         className="mySwiper1"
       >
         {images.map((filename, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={filename}>
             <Image
               preview
               src={`/produts/${slug}/optimized/${filename}`}
               alt={`Slide ${index + 1}`}
+              loading="lazy"
             />
           </SwiperSlide>
         ))}
@@ -46,6 +57,7 @@ const ProductsImages = ({ images, slug }) => {
             <img
               src={`/produts/${slug}/thumbnails/${filename}`}
               alt={`Slide ${index + 1}`}
+              loading="lazy"
             />
           </SwiperSlide>
         ))}

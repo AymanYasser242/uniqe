@@ -5,11 +5,10 @@ import { useMainContext } from "./useMainContext";
 export const useProducts = () => {
   const { URL, setSpin } = useMainContext();
 
-  const getProduct = async (params) => {
+  const getProduct = async (id) => {
     try {
       setSpin(true);
-      const slug = params.slug;
-      const response = await axios.get(URL + `getproduct/?slug=${slug}`);
+      const response = await axios.get(URL + `/product/${id}`);
       setSpin(false);
       return response.data;
     } catch (err) {
@@ -22,7 +21,7 @@ export const useProducts = () => {
   const getAllProducts = async () => {
     try {
       setSpin(true);
-      const response = await axios.get(URL + `getallproducts`);
+      const response = await axios.get(URL + `/product`);
       setSpin(false);
       return response.data;
     } catch (err) {

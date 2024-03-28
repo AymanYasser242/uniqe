@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 
 const Explore = () => {
   return (
-    <Flex vertical justify="center" align="center" className="explore">
+    <Flex vertical justify="center" align="center" className="explore px-4">
       <Flex
         justify="space-between"
         align="center"
@@ -19,14 +19,10 @@ const Explore = () => {
         </Title>
       </Flex>
       <Flex
-        style={{
-          position: "relative",
-          marginTop: "1rem",
-          marginBottom: "3rem",
-        }}
         wrap="wrap"
         justify="center"
         gap={20}
+        className="relative mt-4"
       >
         <ExploreCard
           title="Easy Payments"

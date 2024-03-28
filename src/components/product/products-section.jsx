@@ -1,11 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Autoplay, Mousewheel } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Button, Flex } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import ProductCard from "./product-collection-card";
+import ProductCard from "./products-section-card";
 import Title from "antd/es/typography/Title";
-import { useProducts } from "../../hooks/useProducts";
+import { products } from "../../../data/products";
+//import { useProducts } from "../../hooks/useProducts";
 
 const ProductSection = () => {
   const swiperRef = useRef(null);
@@ -23,32 +24,25 @@ const ProductSection = () => {
   };
 
   //-------------------------------------------------------------------------------------------------------------------------
-  const { getAllProducts } = useProducts();
-  const [products, setProducts] = useState([]);
+  //const { getAllProducts } = useProducts();
+  //const [products, setProducts] = useState([]);
 
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getAllProducts();
-      if(data){
-        setProducts(data);
-      }
-      
-    }
-    getData();
-  }, [])
-
+  // useEffect(() => {
+  //   getAllProducts()
+  //     .then((response) => setProducts(response.data))
+  //     .catch((error) => console.error(error));
+  // }, []);
 
   return (
     <section
-      className="collection  py-10 px-4 my-4 flex flex-col justify-center items-center relative overflow-hidden"
+      className="collection px-4 flex flex-col justify-center items-center relative overflow-hidden"
       id="shop"
     >
       <Flex
         justify="space-between"
         align="center"
         wrap="wrap"
-        className="mb-5 rounded-lg py-1 px-2 bg-[#F6F5F6] w-full"
+        className="mb-5 rounded-lg py-1 px-2 bg-gray-100 w-full"
       >
         <Title level={3} className="main-title">
           Discover Our Best Products
@@ -81,47 +75,26 @@ const ProductSection = () => {
       <Flex className="py-4 w-full">
         <Swiper
           slidesPerView={"auto"}
-          spaceBetween={40}
+          spaceBetween={20}
+          centeredSlides={true}
           loop={true}
           mousewheel={false}
-          autoplay={{ delay: 3500, disableOnInteraction: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           keyboard={true}
           modules={[Navigation, Keyboard, Autoplay, Mousewheel]}
           ref={swiperRef}
-          breakpoints={{
-            0: {
-              centeredSlides: true,
-              centeredSlidesBounds: true,
-              centerInsufficientSlides: true,
-            },
-            768: {
-              centeredSlides: false,
-              centeredSlidesBounds: false,
-              centerInsufficientSlides: false,
-            },
-          }}
         >
-          {
-            products.map((product) => (
-              <SwiperSlide key={product._id}>
-                <ProductCard
-                  product={product}
-                />
-              </SwiperSlide>
-            ))
-          }
+          {products.map((product) => (
+            <SwiperSlide key={product.title}>
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
           {/*----------- duplication because of loop-----------*/}
-          {
-            products.map((product) => (
-              <SwiperSlide key={product.slug}>
-                <ProductCard
-                  product={product}
-                />
-              </SwiperSlide>
-            ))
-          }
-
-
+          {products.map((product) => (
+            <SwiperSlide key={product.slug}>
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </Flex>
       <Flex

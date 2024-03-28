@@ -29,7 +29,7 @@ const Signup = () => {
               fontFamily: "Almarai",
             }}
           >
-            Welcome to Unique!
+            Welcome to Uniqe!
           </Title>
           <Paragraph className="text-base max-w-[40rem] text-gray-500">
             Please create your account and explore the unique and distinctive

@@ -64,7 +64,7 @@ const columns = [
       <Fragment>
         <Popconfirm
           title="Delete the product"
-          description="Are you sure to delete this item from the cart?"
+          description="Are you sure to remove this item from the cart?"
           onConfirm={confirm}
           okText="Yes"
           cancelText="No"
@@ -112,11 +112,6 @@ const data = [
 const Cart = () => {
   return (
     <section className="cart max-w-full">
-      <Row className="px-4">
-        <Col span={24}>
-          <MainBreadcrumb />
-        </Col>
-      </Row>
       <Row className="px-4">
         <Col xs={24} md={16} lg={18} xl={19} className="overflow-x-auto">
           <Table columns={columns} dataSource={data} pagination={false} />

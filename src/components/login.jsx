@@ -11,7 +11,7 @@ const Login = () => {
   const { login } = useLogin();
 
   const onFinish = (values) => {
-   login(values);
+    login(values);
   };
 
   return (
@@ -25,7 +25,7 @@ const Login = () => {
               fontFamily: "Almarai",
             }}
           >
-            Welcome to Unique!
+            Welcome to Uniqe!
           </Title>
           <Paragraph className="text-base max-w-[40rem] text-gray-500">
             Please log in to access your account and explore the unique and
@@ -93,9 +93,8 @@ const Login = () => {
         <Col xs={0} md={12} className="hidden md:flex justify-end max-h-full">
           <Image
             preview={false}
-            src={`https://source.unsplash.com/random/${screen.width * 0.5}x${
-              screen.height - 200
-            }/?furniture`}
+            src={`https://source.unsplash.com/random/${screen.width * 0.5}x${screen.height - 200
+              }/?furniture`}
             //src={`/product-${Math.floor(Math.random() * 4) + 1}.jpg`}
             height={"100%"}
           />

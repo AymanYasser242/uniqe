@@ -6,31 +6,33 @@ import Paragraph from "antd/es/typography/Paragraph";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import ProductSection from "./products-section";
 import { useEffect, useState } from "react";
-import { useProducts } from "../../hooks/useProducts";
 import { useParams } from "react-router-dom";
-
+import { products } from "../../../data/products";
+//import { useProducts } from "../../hooks/useProducts";
 
 const ProductView = () => {
   const [product, setProduct] = useState(null);
   const params = useParams();
-  const { getProduct } = useProducts();
+  // const { getProduct } = useProducts();
+
+  // useEffect(() => {
+  //   getProduct(params.id)
+  //     .then((response) => setProduct(response.data))
+  //     .catch((error) => console.error(error));
+  // }, [params]);
 
   useEffect(() => {
-    const getData = async () => {
-      const data = await getProduct(params);
-      setProduct(data);
-    }
-    getData();
-  }, [params])
+    setProduct(products[params.id - 1]);
+  }, [params.id]);
 
   if (!product) {
     return;
   }
 
   return (
-    <section className="product-view py-6 min-h-[80vh]">
+    <section className="product-view my-4">
       <Row>
-        <Col xs={{ span: 24 }} lg={{ span: 10 }} className="px-4 lg:px-8">
+        <Col xs={{ span: 24 }} lg={{ span: 10 }} className="px-4 lg:px-8 ">
           <ProductsImages images={product.images} slug={product.slug} />
         </Col>
         <Col
@@ -41,32 +43,31 @@ const ProductView = () => {
           <Title level={2} className="font-[Almarai]">
             {product.title}
           </Title>
-          <Rate
-            allowHalf
-            disabled
-            defaultValue={product.rating}
-            count={5}
-          />
+          <Rate allowHalf disabled defaultValue={product.rating} count={5} />
 
           <p className="price-eg text-xl pt-4 pb-1 font-[700] m-0">
-            {`${product.price.eg.discounted}${product.price.eg.currency}`}
-            <span className="px-2 text-base font-[500] line-through text-gray-400">
-              {`${product.price.eg.original}${product.price.eg.currency}`}
-            </span>
+            {product.priceEG}LE
+            <small className="px-2 text-base font-[500] line-through text-gray-400">
+              {Math.round(product.priceEG / (1 - product.discount / 100))}LE
+            </small>
           </p>
           <p className="price-usd text-xl pb-4 pt-1 font-[700] m-0">
-            {`${product.price.usd.discounted}${product.price.usd.currency}`}
-            <span className="px-1 text-base font-[500] line-through text-gray-400">
-              {`${product.price.usd.original}${product.price.usd.currency}`}
-            </span>
+            {product.priceUSD}$
+            <small className="px-1 text-base font-[500] line-through text-gray-400">
+              {Math.round(product.priceUSD / (1 - product.discount / 100))}$
+            </small>
           </p>
-          <ProductTags details={product.details} />
+          <ProductTags product={product} />
           <Title level={4} className="font-[Almarai]">
             Description :
           </Title>
           <Paragraph
             className="text-gray-500 max-w-[85%]"
-            ellipsis={{ rows: 2, symbol: <span className="text-primary">More</span>, expandable: true }}
+            ellipsis={{
+              rows: 2,
+              symbol: <span className="text-primary">More</span>,
+              expandable: true,
+            }}
           >
             {product.description}
           </Paragraph>
@@ -78,12 +79,8 @@ const ProductView = () => {
             }
             column={{ xs: 1, sm: 2, md: 2, lg: 2, xl: 2, xxl: 2 }}
           >
-            <Descriptions.Item label="Delivery Time">
-              5d
-            </Descriptions.Item>
-            <Descriptions.Item label="Discount">
-              -10%
-            </Descriptions.Item>
+            <Descriptions.Item label="Delivery Time">5d</Descriptions.Item>
+            <Descriptions.Item label="Discount">-10%</Descriptions.Item>
             <Descriptions.Item label="phone & whatsapp">
               +201080875089
             </Descriptions.Item>
@@ -116,30 +113,19 @@ const ProductView = () => {
             </Title>
           }
           column={{ xs: 1, sm: 2, md: 2, lg: 2, xl: 2, xxl: 2 }}
-          className="bg-neutral-50 px-8 py-12 my-10 w-full"
+          className="bg-gray-50 px-8 py-8 my-6 w-full"
           bordered
         >
-          <Descriptions.Item label="Brand">
-            {product.details.brand}
-          </Descriptions.Item>
+          <Descriptions.Item label="Brand">{product.brand}</Descriptions.Item>
           <Descriptions.Item label="Dimensions">
-            H: {`${product.details.dimensions.height}`}, W:{" "}
-            {`${product.details.dimensions.width}`}, D:{" "}
-            {`${product.details.dimensions.depth}`}
+            H: {`${product.height}`}, W: {`${product.width}`}, D:{" "}
+            {`${product.depth}`}
             <small className="text-gray-500 text-sm px-1">cm</small>
           </Descriptions.Item>
-          <Descriptions.Item label="Color">
-            {product.details.color}
-          </Descriptions.Item>
-          <Descriptions.Item label="Region">
-            {product.details.region}
-          </Descriptions.Item>
-          <Descriptions.Item label="Delivery Time">
-            5d
-          </Descriptions.Item>
-          <Descriptions.Item label="Discount">
-            -10%
-          </Descriptions.Item>
+          <Descriptions.Item label="Color">{product.color}</Descriptions.Item>
+          <Descriptions.Item label="Region">{product.region}</Descriptions.Item>
+          <Descriptions.Item label="Delivery Time">5d</Descriptions.Item>
+          <Descriptions.Item label="Discount">-10%</Descriptions.Item>
           <Descriptions.Item label="phone & whatsapp">
             +201080875089
           </Descriptions.Item>

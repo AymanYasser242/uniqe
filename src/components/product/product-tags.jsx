@@ -2,28 +2,17 @@ import { Icon } from "@iconify/react";
 import { Avatar, Flex } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 
-
-
-const ProductTags = () => {
-  const details = {
-    "brand": "Uniqe",
-    "dimensions": {
-      "height": 30,
-      "width": 25,
-      "depth": 10
-    },
-    "color": "Light Espresso",
-    "region": "Made In Egypt",
-    "weight": 300,
-    "matrial": "wood"
-  }
+const ProductTags = ({ product }) => {
   const tags = [
-    { icon: "system-uicons:ruler", value: `${details.dimensions.height}x${details.dimensions.width}x${details.dimensions.depth}`, unit: "cm" },
-    { icon: "fluent:box-20-regular", value: details.weight, unit: "g" },
-    { icon: "ph:meta-logo", value: details.brand, unit: "" },
-    { icon: "mynaui:tree", value: details.matrial, unit: "" },
-    { icon: "fluent:color-24-regular", value: details.color, unit: "" },
-
+    {
+      icon: "system-uicons:ruler",
+      value: `${product.height}x${product.width}x${product.depth}`,
+      unit: "cm",
+    },
+    { icon: "fluent:box-20-regular", value: product.weight, unit: "g" },
+    { icon: "ph:meta-logo", value: product.brand, unit: "" },
+    { icon: "mynaui:tree", value: product.material, unit: "" },
+    { icon: "fluent:color-24-regular", value: product.color, unit: "" },
   ];
 
   return (
@@ -49,7 +38,7 @@ const ProductTags = () => {
               marginRight: "5px",
             }}
           >
-            {tag.value}{" "}
+            {tag.value}
             <small className="text-gray-500 text-sm">{tag.unit}</small>
           </Paragraph>
         </Flex>

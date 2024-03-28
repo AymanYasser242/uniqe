@@ -3,8 +3,8 @@ import MainHeader from "./header";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import MainFooter from "./footer";
 import { useEffect } from "react";
-import Spinner from "./utility/spinner";
 import { Content } from "antd/es/layout/layout";
+//import Spinner from "./utility/spinner";
 
 const ContentContainer = () => {
   const { pathname } = useLocation();
@@ -19,6 +19,7 @@ const ContentContainer = () => {
   return (
     <div className="content-container max-w-[1700px] mx-auto">
       <MainHeader />
+      {/*<MainBreadcrumb /> */}
       <Content className="min-h-[50vh]">
         <Outlet />
       </Content>
@@ -29,7 +30,7 @@ const ContentContainer = () => {
         avatar="/logo-chat.svg"
         statusMessage="Feel free to contact us any time"
       />
-      <Spinner />
+      {/*<Spinner />*/}
     </div>
   );
 };

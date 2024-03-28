@@ -5,7 +5,7 @@ import "./styles/index.css";
 import "./styles/App.css";
 import { ConfigProvider } from "antd";
 import "swiper/css/bundle";
-import { MainContextProvider } from "../context/mainContext.jsx";
+//import { MainContextProvider } from "../context/mainContext.jsx";
 
 const theme = {
   token: {
@@ -23,17 +23,17 @@ const theme = {
       primaryShadow: "0 2px 0 rgba(2, 100, 64, 0.1)",
     },
     Spin: {
-      dotSizeLG: 45
-    }
+      dotSizeLG: 45,
+    },
   },
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ConfigProvider theme={theme}>
-      <MainContextProvider>
-        <App />
-      </MainContextProvider>
+      {/*<MainContextProvider>*/}
+      <App />
+      {/*</MainContextProvider> */}
     </ConfigProvider>
   </React.StrictMode>
 );

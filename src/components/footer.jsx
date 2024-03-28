@@ -1,12 +1,11 @@
 import { Icon } from "@iconify/react";
 import { Col, Divider, Flex, List, Row } from "antd";
 import { Footer } from "antd/es/layout/layout";
-import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
 
 const MainFooter = () => {
   return (
-    <Footer className="footer bg-[#131B23] text-white px-0 py-1">
+    <Footer className="footer bg-[#061621] text-white px-0 py-1">
       <Row className="flex justify-between">
         <Col xs={{ span: 24 }} md={{ span: 8 }} className="px-4 md:px-10">
           <Title
@@ -16,12 +15,12 @@ const MainFooter = () => {
           >
             Company Overview:
           </Title>
-          <Paragraph className="text-white text-opacity-60 text-pretty">
+          <p className="text-white text-sm text-opacity-60 text-balance">
             Founded in 2023, Uniqe is a leading provider of high-quality wooden
             products, we are dedicated to offering customers a wide range of
             beautifully crafted wooden items that bring warmth, sustainability,
             and timeless elegance to homes and businesses.
-          </Paragraph>
+          </p>
           <Flex className="py-4 text-2xl md:text-3xl text-lime-600" gap={15}>
             <a
               href="https://www.facebook.com/profile.php?id=61552485250311&mibextid=2JQ9oc"
@@ -76,12 +75,46 @@ const MainFooter = () => {
               </Title>
             }
           >
-            <List.Item>Phone</List.Item>
-            <List.Item>FaceBook</List.Item>
-            <List.Item>Instagram</List.Item>
-            <List.Item>Twitter</List.Item>
-            <List.Item>Whatsapp</List.Item>
-            <List.Item></List.Item>
+            <List.Item>
+              <a
+                href="tel:+201080875089"
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-300"
+              >
+                Phone
+              </a>
+            </List.Item>
+            <List.Item>
+              <a
+                href="https://api.whatsapp.com/send/?phone=201080875089"
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-300"
+              >
+                Whatsapp
+              </a>
+            </List.Item>
+            <List.Item>
+              <a
+                href="https://www.facebook.com/profile.php?id=61552485250311&mibextid=2JQ9oc"
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-300"
+              >
+                FaceBook
+              </a>
+            </List.Item>
+            <List.Item>
+              <a
+                href="https://www.instagram.com/uniqe_eg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-300"
+              >
+                Instagram
+              </a>
+            </List.Item>
           </List>
         </Col>
       </Row>
@@ -91,7 +124,7 @@ const MainFooter = () => {
         </Divider>
         <Title
           level={5}
-          className="w-full text-opacity-70  font my-2 text-center flex justify-center items-center"
+          className="w-full text-opacity-70  my-1 text-center flex justify-center items-center"
           style={{ color: "#c0c0c0", fontSize: "15px" }}
         >
           <Icon
@@ -99,13 +132,20 @@ const MainFooter = () => {
             width={20}
             className="px-2 text-[#688272]"
           />
-          Developed By : Ayman Yasser
+          <a
+            href="https://linktr.ee/aymanyasserofficial"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "#c0c0c0", fontSize: "15px" }}
+          >
+            Developed By : Ayman Yasser
+          </a>
         </Title>
         <Flex
           justify="center"
           wrap="wrap"
-          className="w-full py-6 text-2xl  text-lime-600"
-          gap={15}
+          className="w-full py-2 text-2xl  text-lime-600"
+          gap={10}
         >
           <a
             href="https://www.facebook.com/ayman.yasser.39"
