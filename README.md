@@ -1,8 +1,6 @@
 # UNIQE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+UNIQE, an innovative Egyptian brand specializing in Modern
+ wooden products. the website is designed for a seamless and
+ visually pleasing experience to match the modern pattern of the
+ products visit now from link below : uniqe.onrender.com 
